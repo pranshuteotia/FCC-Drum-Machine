@@ -1,4 +1,4 @@
-# Drum MAchine
+# Drum Machine
 ### A FreeCodeCamp Project
 
 ## About:
