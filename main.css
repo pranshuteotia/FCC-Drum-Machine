@@ -1,3 +1,5 @@
+body {background-color: #02735E;}
+
 #root {
     height: 97vh;
     display: flex;
@@ -8,9 +10,9 @@
 
 #drum-machine {
     margin: auto;
-    background: cyan;
-    padding: 1em;
-    width: 50%;
+    background: #F2B035;
+    padding: 2em;
+    border-radius: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,7 +33,7 @@
 }
 
 .drumpad-container {
-    background: red;
+    background: #3BBFA7;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1em;
@@ -39,21 +41,12 @@
     flex: 2;
 }
 
-.btn-cont {
-    width: 20%;
-    height: 20px;
-    background: #000;
-    margin: 1em 0;
-    display: flex;
-    align-items: center;
-    padding: 3px;
-}
-
 #display {
     flex: 1;
-    background: grey;
-    width: 20%;
+    background: #F27127;
+    width: 40%;
     text-align: center;
     padding: 1em;
     margin: 1em 0;
+    border-radius: 5px;
 }

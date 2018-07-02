@@ -47,8 +47,9 @@ const bankOne = [{
 ];
 
 const inactive = {
-    backgroundColor: 'grey',
-    boxShadow: '3px 3px 5px black'
+    backgroundColor: '#014034',
+    boxShadow: '3px 3px 5px black',
+    color: 'yellow'
 };
 
 const active = {
