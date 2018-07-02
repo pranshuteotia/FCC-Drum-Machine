@@ -46,12 +46,27 @@ const bankOne = [{
 },
 ];
 
+const inactive = {
+    backgroundColor: 'grey',
+    boxShadow: '3px 3px 5px black'
+};
+
+const active = {
+    backgroundColor: 'orange',
+    boxShadow: "0 3px orange",
+};
+
 class DrumBtn extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            padStyle: inactive
+        };
+
         this.handleKeyPress = this.handleKeyPress.bind(this);
         this.playSound = this.playSound.bind(this);
+        this.activeBtn = this.activeBtn.bind(this);
     }
 
     componentDidMount() {
@@ -64,16 +79,29 @@ class DrumBtn extends React.Component {
         }
     }
 
+    activeBtn() {
+        this.state.padStyle.backgroundColor === 'orange' ?
+            this.setState({
+                padStyle: inactive
+            }) :
+            this.setState({
+                padStyle: active
+            });
+    }
+
     playSound() {
+        this.props.dispHandler(this.props.disp);
         const sound = document.getElementById(this.props.keyTrigger);
         sound.currentTime = 0;
         sound.play();
+        this.activeBtn();
+        setTimeout(() => this.activeBtn(), 100);
     }
 
     render() {
         return(
-            <div className="drum-pad" keyCode={this.props.keyCode} onClick={this.playSound}>
-                <audio src={this.props.url} id={this.props.keyTrigger}></audio>
+            <div className="drum-pad" keyCode={this.props.keyCode} onClick={this.playSound} style={this.state.padStyle} id={this.props.disp}>
+                <audio src={this.props.url} id={this.props.keyTrigger} className="clip"></audio>
                 <div className="txt">{this.props.keyTrigger}</div>
             </div>
         );
@@ -87,7 +115,12 @@ class App extends React.Component {
         this.state = {
             currentBank: bankOne,
             display: String.fromCharCode(160)
-        }
+        };
+        this.updateDisplay = this.updateDisplay.bind(this);
+    }
+
+    updateDisplay(arg0) {
+        this.setState({display: arg0});
     }
 
     render() {
@@ -97,11 +130,11 @@ class App extends React.Component {
                     url={o.url}
                     keyCode={o.keyCode}
                     keyTrigger={o.keyTrigger}
+                    disp={o.id}
+                    dispHandler={this.updateDisplay}
                 />
             );
         });
-
-        console.log(btns);
 
         return(
             <div id="drum-machine">

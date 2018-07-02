@@ -19,10 +19,10 @@
 .drum-pad {
     height: 100px;
     width: 100px;
-    background: grey;
     display: flex;
     align-items: center;
     box-shadow: 3px 3px 5px black;
+    cursor: pointer;
 }
 
 .txt {
@@ -39,19 +39,6 @@
     flex: 2;
 }
 
-.controls-container {
-    flex: 1;
-    background: red;
-    height: 450px;
-    margin: 0 5px;
-    display: flex;
-    flex-direction: column;
-    padding: 1em;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-}
-
 .btn-cont {
     width: 20%;
     height: 20px;
@@ -62,14 +49,11 @@
     padding: 3px;
 }
 
-.btn {
-    width: 50%;
-    height: 20px;
-}
-
 #display {
     flex: 1;
     background: grey;
-    padding: 0 1em;
+    width: 20%;
+    text-align: center;
+    padding: 1em;
     margin: 1em 0;
 }
